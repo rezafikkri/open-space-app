@@ -63,9 +63,9 @@ function TalkItem({
 }
 
 const userShape = {
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  photo: PropTypes.string.isRequired,
+  id: PropTypes.string,
+  name: PropTypes.string,
+  photo: PropTypes.string,
 };
 
 const talkItemShape = {
@@ -74,7 +74,7 @@ const talkItemShape = {
   createdAt: PropTypes.string.isRequired,
   likes: PropTypes.arrayOf(PropTypes.string).isRequired,
   authUser: PropTypes.string.isRequired,
-  user: PropTypes.shape(userShape).isRequired,
+  user: PropTypes.shape(userShape),
 };
 
 TalkItem.propTypes = {

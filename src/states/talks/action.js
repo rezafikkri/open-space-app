@@ -51,7 +51,7 @@ function asyncAddTalk({ text, replyTo = '' }) {
 
 function asyncToggleLikeTalk(talkId) {
   return async (dispatch, getState) => {
-    const { authUser: id } = getState();
+    const { authUser: { id } } = getState();
     dispatch(toggleLikeTalkActionCreator({ talkId, userId: id }));
 
     try {
