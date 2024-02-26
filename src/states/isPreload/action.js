@@ -2,6 +2,7 @@
  * @TODO: Define all the actions (creator) for the isPreLoad state
  */
 
+import { hideLoading, showLoading } from "react-redux-loading-bar";
 import api from "../../utils/api";
 import { setAuthUserActionCreator } from "../authUser/action";
 
@@ -20,6 +21,8 @@ function setIsPreloadActionCreator(isPreload) {
 
 function asyncPreloadProccess() {
   return async (dispatch) => {
+    dispatch(showLoading());
+
     try {
       // preload proccess
       const authUser = await api.getOwnProfile();
@@ -31,6 +34,8 @@ function asyncPreloadProccess() {
       // end preload proccess
       dispatch(setIsPreloadActionCreator(false));
     }
+
+    dispatch(hideLoading());
   };
 }
 
