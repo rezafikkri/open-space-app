@@ -18,10 +18,11 @@ function asyncPopulateUsersAndTalks() {
       dispatch(receiveUsersActionCreator(users));
       dispatch(receiveTalksActionCreator(talks));      
     } catch (error) {
-      alert(error.message);
+      // alert(error.message);
+      throw new Error(error.message);
+    } finally {
+      dispatch(hideLoading());
     }
-
-    dispatch(hideLoading());
   };
 }
 
